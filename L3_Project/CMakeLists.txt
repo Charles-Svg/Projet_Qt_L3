@@ -35,6 +35,8 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        notchartwidget.cpp
+        notchartwidget.h
         ${TS_FILES}
         src.qrc
 )

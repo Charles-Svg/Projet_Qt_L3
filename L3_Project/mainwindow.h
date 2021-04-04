@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "notchartwidget.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +22,7 @@ public:
 public slots:
     void AboutQt();
     void AboutChart();
+    void UpdateChart();
 
 signals:
     void FileSelected(QString const & file);
@@ -30,5 +33,7 @@ private:
     QAction *Draw;
     QAction *Save;
     void ReadData();
+    QString _titre;
+    NotChartWidget* _graphe;
 };
 #endif // MAINWINDOW_H

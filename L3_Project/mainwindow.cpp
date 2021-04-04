@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include <iostream>
 #include <QIcon>
 #include <QStyle>
 #include <QAction>
@@ -9,6 +10,7 @@
 #include <QMessageBox>
 #include<QTextStream>
 #include<QTableWidgetItem>
+#include <QtDebug>
 
 void MainWindow::AboutQt()
 {
@@ -23,6 +25,13 @@ void MainWindow::AboutChart()
 QMessageBox::about(this,tr("About Charts"),"Cette application à été réalisée par Charles Sauvagnac pour le projet de Développement d'Interface Graphique Avancée de L3 informatique de l'Université Belle Beille à Angers.");
 }
 
+
+void MainWindow::UpdateChart()
+{
+    _graphe->update();
+    qDebug()<<"alllo";
+}
+
 void MainWindow::openFile()
 {
 QString fileName=QFileDialog::getOpenFileName(this,tr("Load a data file"),"~","*csv");
@@ -33,7 +42,9 @@ void MainWindow::FileProcess(QString const & file)
 {
     //la verification de l'existence du fichier est faite au moment d'ouvrir les données
     _file=file;
-    setWindowTitle(this->windowTitle()+"["+_file+"]");
+   // trouver un moyen de cut la dernière partie du filepath
+
+    setWindowTitle(this->_titre+"["+_file+"]");
     ReadData();
     Draw->setEnabled(1);
     Save->setEnabled(1);
@@ -46,8 +57,7 @@ void MainWindow::ReadData()
         if(QFile::exists(_file))
         {
             QFile data(_file);
-          // On ouvre le fichier en lecture seule
-          if(data.exists() && data.open(QIODevice::ReadOnly)) {
+            if(data.exists() && data.open(QIODevice::ReadOnly)) {
               QTextStream in(&data);
 
               int row=-1;
@@ -83,11 +93,12 @@ void MainWindow::ReadData()
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    ,_titre(tr("Chart"))
 {
     ui->setupUi(this);
-    this->setWindowTitle(tr("Hello wolrd "));
+    this->setWindowTitle(_titre);
 
-    ui->splitter->setStyleSheet("border : 1px solid black");
+    //ui->splitter->setStyleSheet("border : 1px solid black");
 
 
     //--------------------Barre de Menu--------------------//
@@ -99,6 +110,7 @@ MainWindow::MainWindow(QWidget *parent)
     QAction * Open =new QAction(this->style()->standardIcon(QStyle::SP_FileIcon),tr("Open file"));
     Open->setShortcut(QKeySequence::Open);
     connect(Open,&QAction::triggered,this,&MainWindow::openFile);
+    connect(this,&MainWindow::FileSelected,this,&MainWindow::FileProcess);
 
     QAction * Quit =new QAction(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton),tr("Quit"));
     Quit->setShortcut(QKeySequence("Ctrl+Q"));
@@ -117,6 +129,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->Menu2->addAction(Draw); ui->Menu2->addAction(Save);
 
+    QObject::connect(Draw,&QAction::triggered,this,&MainWindow::UpdateChart);
+
+
     //-----Menu3-----//
     ui->Menu3->setIcon(this->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
     QAction * AbQt = new QAction(this->style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("About Qt"));
@@ -128,13 +143,27 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->Menu3->addAction(AbQt); ui->Menu3->addAction(AbChart);
 
-    connect(this,&MainWindow::FileSelected,this,&MainWindow::FileProcess);
+
 
 
     //-----table des données-----//
 
 
 
+
+
+    //-----Graphe-----//
+
+
+    _graphe = new NotChartWidget(this);
+    ui->ChartLayout->addWidget(_graphe);
+   // Graphe->show();
+
+
+    //splitter settings
+     ui->splitter->setStyleSheet("border :1px solid black ;");
+    //qDebug()<<ui->splitter->sizes();
+    ui->splitter->setSizes(QList<int>({1,1,1}));
 
 
 

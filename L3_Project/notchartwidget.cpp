@@ -3,89 +3,7 @@
 #include <QDebug>
 #include <QVector>
 
-void NotChartWidget::setWidth( int i) {this->setMinimumWidth(i);_chart=new QPixmap(_chart->scaled(i,this->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));}
-void NotChartWidget::setHeight(int i) {this->setMinimumHeight(i);_chart=new QPixmap(_chart->scaled(this->width(),i,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));}
 
-
-QColor NotChartWidget::AxesColor()
-{return _AxesPen.color();}
-
-QColor NotChartWidget::Pen1Color()
-{return _Pen1.color();}
-
-QColor NotChartWidget::Pen2Color()
-{return _Pen2.color();}
-
-QColor NotChartWidget::Pen3Color()
-{return _Pen3.color();}
-
-
-QColor NotChartWidget::Background()
-{return _background;}
-
-
-void NotChartWidget::setAxesColor( QColor const & C)
-{
-    _AxesPen.setColor(C);
-    emit AxesColorChanged(C);
-}
-
-void NotChartWidget::setPen1Color(QColor const & C)
-{
-    _Pen1.setColor(C);
-    emit Pen1ColorChanged(C);
-}
-
-void NotChartWidget::setPen2Color(QColor const & C)
-{
-    _Pen2.setColor(C);
-    emit Pen2ColorChanged(C);
-}
-
-void NotChartWidget::setPen3Color(QColor const & C)
-{
-    _Pen3.setColor(C);
-    emit Pen3ColorChanged(C);
-}
-
-void NotChartWidget::setBackgroundColor(QColor const &C)
-{
-    _background=C;
-    emit backgroundColorChanged(C);
-}
-
-
-
-void NotChartWidget::setFont(QFont const & F)
-{
-    _font=F;
-    emit fontChanged(F);
-}
-
-
-
-
-
-void NotChartWidget::setTypeDessin(int index)
-{
-    typeDessin=index;
-}
-
-void NotChartWidget::FreshPixmap()
-{
-    //un fonction pour clear le pixmap
-    _chart=new QPixmap(this->width(),this->height());
-    _chart->fill(_background);
-
-}
-
-
-//----SAVEGARDE-----//
-
-void NotChartWidget::SaveFile(const QString &filename)
-{
-    _chart->save(filename);
-}
 
 
 //------------construction de l'objet NotChartWidget---------------//
@@ -99,7 +17,8 @@ NotChartWidget::NotChartWidget(QWidget *parent)
     _background(QColorConstants::White),
     _font("Arial",8),
     MargeX(20),MargeY(20),
-    typeDessin(0)
+    typeDessin(0),
+    PasX(1),PasY(1)
 
 
 {
@@ -110,7 +29,6 @@ NotChartWidget::NotChartWidget(QWidget *parent)
 
 
 }
-
 
 
 //-----------------gestion du dessin sur la pixmap-----------------//
@@ -128,7 +46,7 @@ void NotChartWidget::paintEvent(QPaintEvent *)
 void NotChartWidget::drawChart(QList<QList<float>>const & donnees,bool grille) // passer le type de données à dessiner
 {
     FreshPixmap();
-    //voir pour le setPen$
+    //voir pour le setPen
 
 
     QPainter painter(_chart);
@@ -155,17 +73,21 @@ void NotChartWidget::drawChart(QList<QList<float>>const & donnees,bool grille) /
 
             for(int i=0;i<lesx;i++)
             {
-                int point=(i*largeur())/lesx;
-                painter.drawLine(point ,0,point ,hauteur());
-
+                if(i%PasX==0)
+                {
+                    int point=(i*largeur())/lesx;
+                    painter.drawLine(point ,0,point ,hauteur());
+                }
             }
 
 
             for(int i=0;i<lesy;i++)
             {
-                int point=(i*(hauteur())/lesy);
-                painter.drawLine(0,point,largeur(),point);
-
+                if(i%PasY==0)
+                {
+                    int point=(i*(hauteur())/lesy);
+                    painter.drawLine(0,point,largeur(),point);
+                 }
             }
   }
 
@@ -197,16 +119,23 @@ void NotChartWidget::drawChart(QList<QList<float>>const & donnees,bool grille) /
 
     for(int i=0; i<=lesx;i++)
     {
-      int point=(i*largeur())/lesx;
-      painter.drawText(QPoint(point,hauteur()/2),QString::number(i+Xmin));
+       if(i%PasX==0)
+        {
 
+              int point=(i*largeur())/lesx;
+              painter.drawText(QPoint(point,hauteur()/2),QString::number(i+Xmin));
+
+        }
     }
 
     for(int i=0; i<=lesy;i++)
     {
-      int point=(i*hauteur())/lesy;
-      if(Ymax-i!=0)
-      painter.drawText(QPoint(axesXpoint,point),QString::number(Ymax-i));
+
+      if(i%PasY==0 && Ymax-i!=0) // la deuxième condition sert a ne pas redissener le 0
+      {
+          int point=(i*hauteur())/lesy;
+          painter.drawText(QPoint(axesXpoint,point),QString::number(Ymax-i));
+      }
 
     }
 
@@ -341,3 +270,94 @@ switch (typeDessin) {
 }
 
 }
+//------------------------Setter, Getters et Slots----------------------------------//
+
+
+void NotChartWidget::setWidth( int i) {this->setMinimumWidth(i);_chart=new QPixmap(_chart->scaled(i,this->height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation));}
+void NotChartWidget::setHeight(int i) {this->setMinimumHeight(i);_chart=new QPixmap(_chart->scaled(this->width(),i,Qt::IgnoreAspectRatio,Qt::SmoothTransformation));}
+
+
+QColor NotChartWidget::AxesColor()
+{return _AxesPen.color();}
+
+QColor NotChartWidget::Pen1Color()
+{return _Pen1.color();}
+
+QColor NotChartWidget::Pen2Color()
+{return _Pen2.color();}
+
+QColor NotChartWidget::Pen3Color()
+{return _Pen3.color();}
+
+
+QColor NotChartWidget::Background()
+{return _background;}
+
+
+void NotChartWidget::setAxesColor( QColor const & C)
+{
+    _AxesPen.setColor(C);
+    emit AxesColorChanged(C);
+}
+
+void NotChartWidget::setPen1Color(QColor const & C)
+{
+    _Pen1.setColor(C);
+    emit Pen1ColorChanged(C);
+}
+
+void NotChartWidget::setPen2Color(QColor const & C)
+{
+    _Pen2.setColor(C);
+    emit Pen2ColorChanged(C);
+}
+
+void NotChartWidget::setPen3Color(QColor const & C)
+{
+    _Pen3.setColor(C);
+    emit Pen3ColorChanged(C);
+}
+
+void NotChartWidget::setBackgroundColor(QColor const &C)
+{
+    _background=C;
+    emit backgroundColorChanged(C);
+}
+
+
+
+void NotChartWidget::setFont(QFont const & F)
+{
+    _font=F;
+    emit fontChanged(F);
+}
+
+
+
+
+
+void NotChartWidget::setTypeDessin(int index)
+{
+    typeDessin=index;
+}
+
+void NotChartWidget::FreshPixmap()
+{
+    //un fonction pour clear le pixmap
+    _chart=new QPixmap(this->width(),this->height());
+    _chart->fill(_background);
+
+}
+
+
+//----SAVEGARDE-----//
+
+void NotChartWidget::SaveFile(const QString &filename)
+{
+    _chart->save(filename);
+}
+
+
+
+
+

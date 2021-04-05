@@ -294,9 +294,13 @@ MainWindow::MainWindow(QWidget *parent)
     //splitter settings
      ui->splitter->setSizes(QList<int>({200,200,800}));
 
-    //-----parametres du Graphe-----//
 
-     //initialisation des boutton de couleurs
+
+    //------------------------parametres du Graphe---------------------------//
+
+
+
+     //initialisation des boutton de couleurs + le font
 
      QString qs= "background-color: %1;";
      QString AxesColor=qs.arg(_graphe->AxesColor().name());
@@ -317,7 +321,12 @@ MainWindow::MainWindow(QWidget *parent)
      QString font="Arial,8";
      ui->pushButtonPolice->setText(font);
 
+
+
+
     //reglages de la taille du graphe
+
+
     ui->spinBoxHauteur->setValue(600);
     ui->spinBoxLargeur->setValue(800);
 
@@ -326,6 +335,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(ui->spinBoxMargeX,QOverload<int>::of(&QSpinBox::valueChanged),_graphe,&NotChartWidget::setMargeX);
     QObject::connect(ui->spinBoxMargeY,QOverload<int>::of(&QSpinBox::valueChanged),_graphe,&NotChartWidget::setMargeY);
+
+
+
 
     //les Dialogues de couleurs
 
@@ -365,6 +377,10 @@ MainWindow::MainWindow(QWidget *parent)
 
      //sauvegarde
     QObject::connect(Save,&QAction::triggered,this,&MainWindow::SaveFile);
+
+    //Connect pour les PasX et Y
+    QObject::connect(ui->spinBoxPasX,QOverload<int>::of(&QSpinBox::valueChanged),_graphe,&NotChartWidget::SetPasX);
+    QObject::connect(ui->spinBoxPasY,QOverload<int>::of(&QSpinBox::valueChanged),_graphe,&NotChartWidget::SetPasY);
 
 }
 

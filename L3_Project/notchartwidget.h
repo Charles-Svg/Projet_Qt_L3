@@ -51,6 +51,9 @@ public slots:
     void setFont(QFont const & F);
     void setTypeDessin(int index);
 
+    void SetPasX(int i){PasX=i;}
+    void SetPasY(int i){PasY=i;}
+
 signals:
      void AxesColorChanged(QColor const & C);
      void Pen1ColorChanged(QColor const & C);
@@ -86,6 +89,9 @@ private:
     //pour la marge
     int hauteur(){return this->height()-MargeY*2;}
     int largeur(){return this->width()-MargeX*2;}
+
+    int PasX;
+    int PasY;
 
 
 };

@@ -2,5 +2,6 @@
     <qresource prefix="/img">
         <file alias="icon.svg">bar-chart.svg</file>
         <file alias="Qt_logo">Qt_logo.png</file>
+        <file alias="watermark">watermark.png</file>
     </qresource>
 </RCC>

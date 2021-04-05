@@ -58,21 +58,11 @@ void MainWindow::FileProcess(QString const & file)
 }
 
 
-void afficheData(QList<QList<float>> const & liste)
-{
-    for(auto i =0;i<liste.size();i++)
-    {
-        for(auto j=0;j<liste.at(i).size();j++)
-        {
-            qDebug()<<liste.at(i).at(j)<<" ligne "<<i;
-        }
-        qDebug()<<"\n";
-    }
-}
-
 void MainWindow::ReadData()
 {
       //lecture csv du Tp3
+        ui->tableWidget->clear();
+        donnees.clear();
         if(QFile::exists(_file))
         {
             QFile data(_file);
@@ -136,6 +126,18 @@ void MainWindow::ReadData()
         }
 }
 
+//---------------------------gestion de la sauvegarde de la pixmap-----------------------------//
+
+
+ void MainWindow::SaveFile(bool)
+ {
+    QString fileName= QFileDialog::getSaveFileName(this,tr("Save you File"),"",tr("*.png"));
+    if(fileName.isEmpty())
+        return;
+    else {
+        _graphe->SaveFile(fileName);
+    }
+ }
 
 
 //-----------------------signaux et slots pour les boutton gerant les couleurs et le font---------------------------------//
@@ -211,7 +213,6 @@ void MainWindow::UpdateBackgroundButton(QColor const & C)
 void MainWindow::UpdateFont(QFont const & F)
 {
     QString str=F.family()+","+QString::number(F.pointSize());
-    qDebug()<<str;
     ui->pushButtonPolice->setText(str);
 }
 
@@ -238,11 +239,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     //-----Menu1-----//
 
+
+    //open
     QAction * Open =new QAction(this->style()->standardIcon(QStyle::SP_FileIcon),tr("Open file"));
     Open->setShortcut(QKeySequence::Open);
     connect(Open,&QAction::triggered,this,&MainWindow::openFile);
     connect(this,&MainWindow::FileSelected,this,&MainWindow::FileProcess);
 
+
+    //quit
     QAction * Quit =new QAction(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton),tr("Quit"));
     Quit->setShortcut(QKeySequence("Ctrl+Q"));
     QObject::connect(Quit,&QAction::triggered,this,&MainWindow::close);
@@ -251,6 +256,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //-----Menu2-----//
+
+    //dessin et sauvegarde
     this->Draw= new QAction(tr("Draw the chart"));
 
     this->Save=new QAction(tr("Save the graph as..."));
@@ -264,6 +271,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //-----Menu3-----//
+
+    //Les AboutQt
     ui->Menu3->setIcon(this->style()->standardIcon(QStyle::SP_MessageBoxQuestion));
     QAction * AbQt = new QAction(this->style()->standardIcon(QStyle::SP_MessageBoxInformation), tr("About Qt"));
     QObject::connect(AbQt,&QAction::triggered,this,&MainWindow::AboutQt);
@@ -280,8 +289,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     _graphe = new NotChartWidget(this);
     ui->ChartLayout->addWidget(_graphe);;
-
-
 
 
     //splitter settings
@@ -352,7 +359,12 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(_fontDialog,&QFontDialog::fontSelected,_graphe,&NotChartWidget::setFont);
     QObject::connect(_graphe,&NotChartWidget::fontChanged,this,&MainWindow::UpdateFont);
 
-    //reste
+    //type de dessin
+    QObject::connect(ui->typeDessinComboBox,QOverload<int>::of(&QComboBox::currentIndexChanged),_graphe,&NotChartWidget::setTypeDessin);
+
+
+     //sauvegarde
+    QObject::connect(Save,&QAction::triggered,this,&MainWindow::SaveFile);
 
 }
 

@@ -84,7 +84,7 @@
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
         </property>
         <item row="1" column="1">
-         <widget class="QComboBox" name="comboBox">
+         <widget class="QComboBox" name="typeDessinComboBox">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -115,7 +115,7 @@
           </item>
           <item>
            <property name="text">
-            <string>Lignes</string>
+            <string>Lines</string>
            </property>
           </item>
          </widget>
@@ -140,7 +140,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Couleur 1</string>
+           <string> Color 1</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -186,7 +186,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Couleur 2</string>
+           <string>Color 2</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -232,7 +232,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Couleur 3</string>
+           <string>Color 3</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -272,7 +272,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Police</string>
+           <string> Font</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -323,7 +323,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Largeur</string>
+           <string>Width</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -377,7 +377,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Hauteur</string>
+           <string>Height</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -425,7 +425,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Marge X</string>
+           <string>Margin X</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -482,7 +482,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Marge Y</string>
+           <string>Margin Y</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -536,7 +536,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Couleur de fond</string>
+           <string>Background Color</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -576,7 +576,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Couleur des axes</string>
+           <string>Axis Color</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -616,7 +616,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Pas X</string>
+           <string>X Step</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -661,7 +661,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Pas Y</string>
+           <string>Y Step</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -718,7 +718,7 @@
            </font>
           </property>
           <property name="text">
-           <string>  Montrer la grille</string>
+           <string>Enable the grid</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -831,17 +831,17 @@
    </property>
    <widget class="QMenu" name="Menu1">
     <property name="title">
-     <string>Fichier</string>
+     <string>File</string>
     </property>
    </widget>
    <widget class="QMenu" name="Menu2">
     <property name="title">
-     <string>Graphique</string>
+     <string>Graph</string>
     </property>
    </widget>
    <widget class="QMenu" name="Menu3">
     <property name="title">
-     <string>aide</string>
+     <string>help</string>
     </property>
    </widget>
    <addaction name="Menu1"/>

@@ -9,110 +9,126 @@
         <translation></translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="275"/>
+        <source> Font</source>
+        <oldsource>  Font</oldsource>
+        <translation> Police</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="784"/>
         <source>Type</source>
         <oldsource>  Type</oldsource>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="118"/>
-        <source>Lignes</source>
-        <translation type="unfinished"></translation>
+        <source>Lines</source>
+        <oldsource>Lignes</oldsource>
+        <translation>Lignes</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="113"/>
         <source>Points</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="143"/>
-        <source>  Couleur 1</source>
-        <translation type="unfinished"></translation>
+        <source> Color 1</source>
+        <oldsource>  Color 1</oldsource>
+        <translation> Couleur1</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="189"/>
-        <source>  Couleur 2</source>
-        <translation type="unfinished"></translation>
+        <source>Color 2</source>
+        <oldsource>  Color 2</oldsource>
+        <translation>Couleur 2</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="235"/>
-        <source>  Couleur 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="275"/>
-        <source>  Police</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="326"/>
-        <source>  Largeur</source>
-        <translation type="unfinished"></translation>
+        <source>Color 3</source>
+        <oldsource>   Color 3</oldsource>
+        <translation>Couleur3</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="380"/>
-        <source>  Hauteur</source>
-        <translation type="unfinished"></translation>
+        <source>Height</source>
+        <oldsource>  Height</oldsource>
+        <translation>Hauteur</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="428"/>
-        <source>  Marge X</source>
-        <translation type="unfinished"></translation>
+        <source>Margin X</source>
+        <oldsource>  Margin X</oldsource>
+        <translation>Marge X</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="485"/>
-        <source>  Marge Y</source>
-        <translation type="unfinished"></translation>
+        <source>Margin Y</source>
+        <oldsource>  Margin Y</oldsource>
+        <translation>Marge Y</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="539"/>
-        <source>  Couleur de fond</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="579"/>
-        <source>  Couleur des axes</source>
-        <translation type="unfinished"></translation>
+        <source>Background Color</source>
+        <oldsource>  Background Color</oldsource>
+        <translation>Couleur du fond</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="619"/>
-        <source>  Pas X</source>
-        <translation type="unfinished"></translation>
+        <source>X Step</source>
+        <oldsource>  X Step</oldsource>
+        <translation>Pas X</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="664"/>
-        <source>  Pas Y</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="721"/>
-        <source>  Montrer la grille</source>
-        <translation type="unfinished"></translation>
+        <location filename="mainwindow.ui" line="844"/>
+        <source>help</source>
+        <translation>aide</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="302"/>
         <source>PushButton</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="326"/>
+        <source>Width</source>
+        <translation>Largeur</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="579"/>
+        <source>Axis Color</source>
+        <translation>Couleurs de Axes</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="664"/>
+        <source>Y Step</source>
+        <translation>Pas Y</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="721"/>
+        <source>Enable the grid</source>
+        <translation>Activer la grille</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="834"/>
-        <source>Fichier</source>
-        <translation type="unfinished"></translation>
+        <source>File</source>
+        <oldsource>Fichier</oldsource>
+        <translation>Fichier</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="839"/>
-        <source>Graphique</source>
-        <translation type="unfinished"></translation>
+        <source>Graph</source>
+        <oldsource>Graphique</oldsource>
+        <translation>Graphique</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="844"/>
         <source>aide</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">help</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="43"/>
         <source>Load a data file</source>
-        <translation type="unfinished"></translation>
+        <translation>Charger un fichier</translation>
     </message>
     <message>
         <source>Hello wolrd </source>
@@ -121,42 +137,52 @@
         <translation type="vanished">Bienvenue la companie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="225"/>
+        <location filename="mainwindow.cpp" line="134"/>
+        <source>*.png</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="134"/>
+        <source>Save you File</source>
+        <translation>Sauvegarder votre Fichier</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="226"/>
         <source>Chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Graphiques</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="241"/>
+        <location filename="mainwindow.cpp" line="244"/>
         <source>Open file</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="246"/>
+        <location filename="mainwindow.cpp" line="251"/>
         <source>Quit</source>
-        <translation type="unfinished"></translation>
+        <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="254"/>
+        <location filename="mainwindow.cpp" line="261"/>
         <source>Draw the chart</source>
-        <translation type="unfinished"></translation>
+        <translation>Dessiner le graphique</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="256"/>
+        <location filename="mainwindow.cpp" line="263"/>
         <source>Save the graph as...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegarder le Graphique sous...</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="19"/>
-        <location filename="mainwindow.cpp" line="268"/>
+        <location filename="mainwindow.cpp" line="277"/>
         <source>About Qt</source>
         <oldsource>ⓘ About Qt</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>A Propos de Qt</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="27"/>
-        <location filename="mainwindow.cpp" line="272"/>
+        <location filename="mainwindow.cpp" line="281"/>
         <source>About Charts</source>
-        <translation type="unfinished"></translation>
+        <translation>A propos du graphique</translation>
     </message>
 </context>
 </TS>

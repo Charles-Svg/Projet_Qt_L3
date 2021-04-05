@@ -41,6 +41,8 @@ public slots:
 
     void UpdateFont(QFont const & F);
 
+    void SaveFile(bool);
+
 signals:
     void FileSelected(QString const & file);
 

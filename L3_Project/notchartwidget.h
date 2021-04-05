@@ -31,6 +31,7 @@ public:
     void setYmax(float i){Ymax=std::ceil(i); }
     void setYmin(float i){Ymin=std::floor(i); }
 
+    void SaveFile(QString const & filename);
 
 
 public slots:
@@ -48,6 +49,7 @@ public slots:
     void setBackgroundColor(QColor const &C);
 
     void setFont(QFont const & F);
+    void setTypeDessin(int index);
 
 signals:
      void AxesColorChanged(QColor const & C);
@@ -78,6 +80,8 @@ private:
 
     int MargeX;
     int MargeY;
+
+    int typeDessin; //0 pour point 1 pour ligne
 
     //pour la marge
     int hauteur(){return this->height()-MargeY*2;}

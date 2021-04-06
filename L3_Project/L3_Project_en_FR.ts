@@ -126,7 +126,7 @@
         <translation type="vanished">help</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="43"/>
+        <location filename="mainwindow.cpp" line="46"/>
         <source>Load a data file</source>
         <translation>Charger un fichier</translation>
     </message>
@@ -137,50 +137,50 @@
         <translation type="vanished">Bienvenue la companie</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="134"/>
+        <location filename="mainwindow.cpp" line="137"/>
         <source>*.png</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="134"/>
+        <location filename="mainwindow.cpp" line="137"/>
         <source>Save you File</source>
         <translation>Sauvegarder votre Fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="226"/>
+        <location filename="mainwindow.cpp" line="152"/>
         <source>Chart</source>
         <translation>Graphiques</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="244"/>
+        <location filename="mainwindow.cpp" line="170"/>
         <source>Open file</source>
         <translation>Ouvrir un fichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="251"/>
+        <location filename="mainwindow.cpp" line="177"/>
         <source>Quit</source>
         <translation>Quitter</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="261"/>
+        <location filename="mainwindow.cpp" line="187"/>
         <source>Draw the chart</source>
         <translation>Dessiner le graphique</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="263"/>
+        <location filename="mainwindow.cpp" line="190"/>
         <source>Save the graph as...</source>
         <translation>Sauvegarder le Graphique sous...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="19"/>
-        <location filename="mainwindow.cpp" line="277"/>
+        <location filename="mainwindow.cpp" line="22"/>
+        <location filename="mainwindow.cpp" line="204"/>
         <source>About Qt</source>
         <oldsource>ⓘ About Qt</oldsource>
         <translation>A Propos de Qt</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="27"/>
-        <location filename="mainwindow.cpp" line="281"/>
+        <location filename="mainwindow.cpp" line="30"/>
+        <location filename="mainwindow.cpp" line="208"/>
         <source>About Charts</source>
         <translation>A propos du graphique</translation>
     </message>

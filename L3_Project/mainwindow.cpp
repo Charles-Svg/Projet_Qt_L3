@@ -14,6 +14,9 @@
 #include <QSpinBox>
 #include <string>
 
+
+
+
 void MainWindow::AboutQt()
 {
     QMessageBox::aboutQt(this,tr("About Qt"));
@@ -140,83 +143,6 @@ void MainWindow::ReadData()
  }
 
 
-//-----------------------signaux et slots pour les boutton gerant les couleurs et le font---------------------------------//
-
-void MainWindow::OpenColorDialogAxes(bool)
-{
-    _AxesDialog->open();
-}
-
-void MainWindow::OpenColoDialog1(bool)
-{
-    _Color1Dialog->open();
-}
-
-void MainWindow::OpenColoDialog2(bool)
-{
-       _Color2Dialog->open();
-}
-
-void MainWindow::OpenColoDialog3(bool)
-{
-       _Color3Dialog->open();
-}
-
-void MainWindow::OpenBackgroundDialog(bool)
-{
-    _backgroundDialog->open();
-}
-
-void MainWindow::OpenFontDialog(bool)
-{
-    _fontDialog->open();
-}
-
-void MainWindow::UpdatePen1Button(QColor const & C)
-{
-    QString qs= "background-color: %1;";
-    QString AxesColor=qs.arg(C.name());
-    ui->pushButtonColor1->setStyleSheet(AxesColor);
-}
-
-void MainWindow::UpdatePen2Button(QColor const & C)
-{
-    QString qs= "background-color: %1;";
-    QString AxesColor=qs.arg(C.name());
-    ui->pushButtonColor2->setStyleSheet(AxesColor);
-}
-
-void MainWindow::UpdatePen3Button(QColor const & C)
-{
-    QString qs= "background-color: %1;";
-    QString AxesColor=qs.arg(C.name());
-    ui->pushButtonColor3->setStyleSheet(AxesColor);
-}
-
-
-void  MainWindow::UpdateAxesButton(QColor const & C)
-{
-    QString qs= "background-color: %1;";
-    QString AxesColor=qs.arg(C.name());
-    ui->pushButtonAxeColor->setStyleSheet(AxesColor);
-}
-
-void MainWindow::UpdateBackgroundButton(QColor const & C)
-{
-
-    QString qs= "background-color: %1;";
-    QString AxesColor=qs.arg(C.name());
-    ui->pushButtonBackgroundColor->setStyleSheet(AxesColor);
-}
-
-
-void MainWindow::UpdateFont(QFont const & F)
-{
-    QString str=F.family()+","+QString::number(F.pointSize());
-    ui->pushButtonPolice->setText(str);
-}
-
-
 //----------------------Contruction Objet MainWindow--------------------------------//
 
 
@@ -259,6 +185,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //dessin et sauvegarde
     this->Draw= new QAction(tr("Draw the chart"));
+    Draw->setShortcut(QKeySequence::Refresh);
 
     this->Save=new QAction(tr("Save the graph as..."));
     Save->setShortcut(QKeySequence("Ctrl+Shift+S"));
@@ -383,6 +310,85 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->spinBoxPasY,QOverload<int>::of(&QSpinBox::valueChanged),_graphe,&NotChartWidget::SetPasY);
 
 }
+
+
+//-----------------------signaux et slots pour les boutton gerant les couleurs et le font---------------------------------//
+
+void MainWindow::OpenColorDialogAxes(bool)
+{
+    _AxesDialog->open();
+}
+
+void MainWindow::OpenColoDialog1(bool)
+{
+    _Color1Dialog->open();
+}
+
+void MainWindow::OpenColoDialog2(bool)
+{
+       _Color2Dialog->open();
+}
+
+void MainWindow::OpenColoDialog3(bool)
+{
+       _Color3Dialog->open();
+}
+
+void MainWindow::OpenBackgroundDialog(bool)
+{
+    _backgroundDialog->open();
+}
+
+void MainWindow::OpenFontDialog(bool)
+{
+    _fontDialog->open();
+}
+
+void MainWindow::UpdatePen1Button(QColor const & C)
+{
+    QString qs= "background-color: %1;";
+    QString AxesColor=qs.arg(C.name());
+    ui->pushButtonColor1->setStyleSheet(AxesColor);
+}
+
+void MainWindow::UpdatePen2Button(QColor const & C)
+{
+    QString qs= "background-color: %1;";
+    QString AxesColor=qs.arg(C.name());
+    ui->pushButtonColor2->setStyleSheet(AxesColor);
+}
+
+void MainWindow::UpdatePen3Button(QColor const & C)
+{
+    QString qs= "background-color: %1;";
+    QString AxesColor=qs.arg(C.name());
+    ui->pushButtonColor3->setStyleSheet(AxesColor);
+}
+
+
+void  MainWindow::UpdateAxesButton(QColor const & C)
+{
+    QString qs= "background-color: %1;";
+    QString AxesColor=qs.arg(C.name());
+    ui->pushButtonAxeColor->setStyleSheet(AxesColor);
+}
+
+void MainWindow::UpdateBackgroundButton(QColor const & C)
+{
+
+    QString qs= "background-color: %1;";
+    QString AxesColor=qs.arg(C.name());
+    ui->pushButtonBackgroundColor->setStyleSheet(AxesColor);
+}
+
+
+void MainWindow::UpdateFont(QFont const & F)
+{
+    QString str=F.family()+","+QString::number(F.pointSize());
+    ui->pushButtonPolice->setText(str);
+}
+
+
 
 MainWindow::~MainWindow()
 {
